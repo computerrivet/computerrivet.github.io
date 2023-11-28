@@ -1,4 +1,4 @@
-module github.com/chrede88/qubtTemplate
+module github.com/computerrivet/computerrivet.github.io
 
 go 1.21.4
 
