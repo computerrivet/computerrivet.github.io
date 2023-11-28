@@ -3,9 +3,9 @@
 ############################
 
 author:
-  name: computerrivet
-  image: author.png
-  greeting: "Your new Qubt site :tada:"
+  name: "Wade Johnson"
+  image: author.jpeg
+  greeting: "Welcome to my site!"
   icon: ":wave:"
 
 ############################
@@ -13,38 +13,40 @@ author:
 ############################
 
 links:
-  - github: https://github.com/computerrivet/computerrivet.github.io
-  - link: https://github.com/computerrivet/computerrivet.github.io#readme
-  # - website: 
-  # - x-twitter: 
-  # - mastodon: 
-  # - linkedin: 
-  # - instagram: 
+  - github: https://github.com/computerrivet
+  # - gitlab: 
+  #- facebook: https://github.com/computerrivet/qubt
+  # - x-twitter:
+  # - mastodon:
+  - linkedin: https://www.linkedin.com/in/wade-johnson-785925a/
+  #- instagram: https://github.com/computerrivet/L1nkr
   # - reddit: 
   # - telegram: 
   # - whatsapp: 
   # - signal: 
   # - codepen: 
   # - dev: 
-  # - email: 
-  # - discord: 
-  # - orcid: 
-  # - slack: 
+  - email: 'mailto:computerrivet@gmail.com'
+  - website: 'https://computerrivet.github.io'
+  # - link: 
+  # - discord:
+  # - orcid:
+  # - slack:
   # - stack-overflow: 
   # - twitch: 
   # - patreon: 
-  # - soundcloud: 
+  # - soundcloud:
   # - dribbble: 
   # - stack-exchange: 
   # - tiktok: 
-  # - youtube: 
+  # - youtube:
   # - keybase: 
   # - flickr: 
-  # - tumblr: 
+  # - tumblr:
   # - kickstarter: 
   # - snapchat:
   # - bluesky: 
-  # - bitbucket: 
+  # - bitbucket:
   # - bandcamp: 
   # - etsy: 
   # - spotify: 
@@ -55,16 +57,16 @@ links:
   # - medium: 
   # - foursquare: 
   # - apple: 
-  # - amazon:
-  # - google:
-  # - paypal:
-  # - windows:
+  # - amazon: 
+  # - google: 
+  # - paypal: 
+  # - windows: 
 
 ###############################
 ## OpenGraph & Twitter Cards
 ###############################
 
-title: computerrivet.github.io
-description: "Site build with Qubt & Hugo"
+title: "Qubt Theme"
+description: "Demo site build with Qubt & Hugo"
 images:
-  - thumbnail.png
+  - thumbnail.jpeg
