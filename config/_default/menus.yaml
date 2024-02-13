@@ -7,7 +7,7 @@ main:
     url: /
     weight: 10
   - name: Resume
-    url: /Wade-Johnson-Resume.pdf
+    url: /wade-johnson-resume.pdf
     weight: 20
   - name: About
     url: /about/
