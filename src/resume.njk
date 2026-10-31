@@ -1,0 +1,55 @@
+---
+layout: base.njk
+title: Résumé
+description: Résumé for Wade Johnson — senior software developer, Kelowna BC. PDF and Word formats.
+permalink: /resume/
+eleventyExcludeFromCollections: true
+---
+
+<h1>Résumé</h1>
+
+<p class="lede">
+  Senior software developer with 20+ years building and modernizing production
+  systems. Two pages.
+</p>
+
+<p class="resume-links">
+  <a class="button" href="/assets/files/wade-johnson-resume.pdf" download>
+    Download PDF
+  </a>
+  <a class="button secondary" href="/assets/files/wade-johnson-resume.docx" download>
+    Download Word (.docx)
+  </a>
+</p>
+
+<p class="meta">
+  Last updated {{ site.resumeUpdated }}. The PDF is the designed version;
+  the Word file is the same content in an editable format.
+</p>
+
+<h2>Highlights</h2>
+
+<ul class="highlights">
+  <li>
+    <strong>ARCD Web</strong> — a multi-tenant ASP.NET platform for railroad
+    crossing diagnostics: 87 issues and ~20 releases, including a rolling
+    24-hour health-indicator engine and ACL-based access control.
+  </li>
+  <li>
+    <strong>ACMS Pass</strong> — a .NET MAUI application for Android and iOS,
+    shipped through 13+ releases, including re-architecting authentication onto
+    user-level API keys.
+  </li>
+  <li>
+    <strong>Platform modernization</strong> — .NET 8 to .NET 10 LTS, continuous
+    integration, Azure SQL consolidation, and Playwright-based PDF reporting.
+  </li>
+</ul>
+
+<h2>Contact</h2>
+
+<ul class="links">
+  <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
+  <li><a href="{{ site.github }}">GitHub</a></li>
+  <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
+</ul>

@@ -251,12 +251,49 @@ li::marker {
   color: var(--muted);
 }
 
+/* Download buttons on the resume page */
+
+.resume-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 0.75rem;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.55rem 1.1rem;
+  border: 1px solid var(--link);
+  border-radius: 4px;
+  background: var(--link);
+  color: #fff;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.button:hover {
+  background: #14497f;
+  border-color: #14497f;
+}
+
+.button.secondary {
+  background: transparent;
+  color: var(--link);
+}
+
+.button.secondary:hover {
+  background: #eef4fa;
+  color: var(--link);
+}
+
 /* Print: strip chrome, keep content. */
 
 @media print {
   .site-header nav,
   .site-footer .links,
-  .back {
+  .back,
+  .resume-links {
     display: none;
   }
 

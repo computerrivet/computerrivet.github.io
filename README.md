@@ -25,10 +25,29 @@ src/
     posts.json          front-matter defaults for every post in the folder
     index.njk           the post list
     *.md                one file per post
+  resume.njk            resume page with PDF/DOCX downloads
   feed.njk              Atom feed at /feed.xml
   404.md                not-found page
   assets/style.css      all styles
+  assets/files/         the published resume PDF and DOCX
 ```
+
+## Updating the resume
+
+The resume is built in the parent project, not here. To publish a new version:
+
+```bash
+cd ..                 # the resume project
+./build_resume.sh     # regenerate build_resume.pdf / .docx
+cd website
+./sync-resume.sh      # copy them into src/assets/files/
+npm run build
+git add -A && git commit -m "Update resume" && git push
+```
+
+`sync-resume.sh` verifies the PDF is two pages and warns if it isn't. It cannot
+tell whether the _content_ changed, so update `resumeUpdated` in
+`src/_data/site.json` when it has.
 
 ## Writing a post
 
@@ -63,5 +82,6 @@ If the site moves to a subpath rather than a domain root, set `pathPrefix` in
 
 - One column, ~38rem measure, no sidebar.
 - System font stack starting with Source Sans 3, matching the resume PDF.
-- Print styles strip navigation so any page can be saved as a clean PDF.
+- Print styles strip navigation and download buttons so any page, including the
+  resume page, can be saved as a clean PDF.
 - No JavaScript at all.
