@@ -1,0 +1,30 @@
+---
+permalink: /posts/
+layout: base.njk
+title: Writing
+description: Notes on software, infrastructure, and things I have had to work out the hard way.
+eleventyExcludeFromCollections: true
+---
+
+<h1>Writing</h1>
+
+<p class="lede">
+  Notes on software, infrastructure, and things I've had to work out the hard way.
+</p>
+
+{%- set posts = collections.posts | byNewest %}
+{%- if posts.length %}
+<ul class="post-list">
+  {%- for post in posts %}
+  <li>
+    <a href="{{ post.url }}">{{ post.data.title }}</a>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    {%- if post.data.description %}
+    <p>{{ post.data.description }}</p>
+    {%- endif %}
+  </li>
+  {%- endfor %}
+</ul>
+{%- else %}
+<p>Nothing published yet. When I write something up, it will appear here.</p>
+{%- endif %}

@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>
+      {%- if title and title != site.title -%}
+        {{ title }} — {{ site.title }}
+      {%- else -%}
+        {{ site.title }}
+      {%- endif -%}
+    </title>
+    <meta name="description" content="{{ description or site.description }}" />
+    <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
+    <link rel="stylesheet" href="/assets/style.css" />
+    {%- if page.url == "/" %}
+    <meta property="og:type" content="website" />
+    {%- else %}
+    <meta property="og:type" content="article" />
+    {%- endif %}
+    <meta property="og:title" content="{{ title or site.title }}" />
+    <meta property="og:description" content="{{ description or site.description }}" />
+    <link
+      rel="alternate"
+      type="application/atom+xml"
+      title="{{ site.title }}"
+      href="/feed.xml"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="site-title" href="/">{{ site.title }}</a>
+      <nav aria-label="Primary">
+        <a href="/about/">About</a>
+        <a href="/posts/">Writing</a>
+      </nav>
+    </header>
+
+    <main>{{ content | safe }}</main>
+
+    <footer class="site-footer">
+      <p>
+        {{ site.location }} ·
+        <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+      </p>
+      <p class="links">
+        <a href="{{ site.github }}">GitHub</a> ·
+        <a href="{{ site.linkedin }}">LinkedIn</a>
+      </p>
+    </footer>
+  </body>
+</html>
