@@ -25,7 +25,8 @@ src/
     posts.json          front-matter defaults for every post in the folder
     index.njk           the post list
     *.md                one file per post
-  resume.njk            resume page with PDF/DOCX downloads
+  resume.njk            resume page: header, downloads, full HTML body
+  _includes/resume-body.html  generated from resume_master.md — do not edit
   feed.njk              Atom feed at /feed.xml
   404.md                not-found page
   assets/style.css      all styles
@@ -34,20 +35,33 @@ src/
 
 ## Updating the resume
 
-The resume is built in the parent project, not here. To publish a new version:
+The resume is authored in the parent project, not here. To publish a new version:
 
 ```bash
 cd ..                 # the resume project
 ./build_resume.sh     # regenerate build_resume.pdf / .docx
 cd website
-./sync-resume.sh      # copy them into src/assets/files/
+./sync-resume.sh      # copy artifacts + regenerate the HTML body
 npm run build
 git add -A && git commit -m "Update resume" && git push
 ```
 
-`sync-resume.sh` verifies the PDF is two pages and warns if it isn't. It cannot
-tell whether the _content_ changed, so update `resumeUpdated` in
-`src/_data/site.json` when it has.
+`sync-resume.sh` does two things: copies the PDF and DOCX into
+`src/assets/files/`, and re-renders `src/_includes/resume-body.html` from
+`resume_master.md` with Pandoc so the readable HTML matches the downloads. It
+verifies the PDF is two pages and warns if it isn't. It cannot tell whether the
+_content_ changed, so update `resumeUpdated` in `src/_data/site.json` when it has.
+
+`resume-body.html` is generated — edit `resume_master.md` instead.
+
+## If a CSS edit reformats the whole file
+
+`normalize_css.py` restores the 2-space indentation and collapses the font stack:
+
+```bash
+python3 normalize_css.py src/assets/style.css
+git diff --numstat src/assets/style.css    # should show 0 deletions
+```
 
 ## Writing a post
 

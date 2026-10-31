@@ -1,14 +1,18 @@
 #!/usr/bin/env bash
-# Copy the built resume artifacts into the site.
+# Refresh the site's copy of the resume.
 #
-# The resume is generated in the parent project (npm-free, plain pandoc); this
-# script is the one place that moves the output across, so the site can never
-# drift from what `build_resume.sh` last produced.
+# The resume is authored and built in the parent project. This script is the
+# only bridge, so the site cannot drift from what `build_resume.sh` produced.
+#
+# It does two things:
+#   1. copies build_resume.pdf and build_resume.docx into src/assets/files/
+#   2. regenerates src/_includes/resume-body.html from resume_master.md, so the
+#      readable HTML version matches the downloadable files
 #
 # Usage: ./sync-resume.sh
 #
-# Run it after rebuilding the resume, then commit the updated files:
-#   ./sync-resume.sh && git add src/assets/files && git commit -m "Update resume"
+# After running, commit the results:
+#   git add -A && git commit -m "Update resume"
 
 set -euo pipefail
 cd "$(dirname "$0")"
@@ -29,12 +33,15 @@ cp "$SRC/build_resume.docx" "$DOCX"
 
 # Fail loudly if the PDF is not the two-page build we expect.
 pages=$(pdfinfo "$PDF" | awk '/^Pages:/{print $2}')
-echo "synced resume: ${pages} page(s)"
+echo "synced artifacts: ${pages} page(s)"
 if [ "$pages" != "2" ]; then
   echo "warning: expected 2 pages, got $pages" >&2
 fi
 
-# Keep the "last updated" line honest.
+# The HTML version comes from the Markdown source, not from the PDF, so that it
+# stays semantic and selectable rather than being an extracted text dump.
+./render-resume-html.sh
+
 echo
 echo "Remember to update site.resumeUpdated in src/_data/site.json if the"
 echo "resume content changed."

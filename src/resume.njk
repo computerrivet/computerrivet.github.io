@@ -1,16 +1,25 @@
 ---
 layout: base.njk
 title: Résumé
-description: Résumé for Wade Johnson — senior software developer, Kelowna BC. PDF and Word formats.
+description: Résumé for Wade Johnson — senior software developer, Kelowna BC. Full version below, also available as PDF and Word.
 permalink: /resume/
 eleventyExcludeFromCollections: true
 ---
 
 <h1>Résumé</h1>
 
+<div class="resume-head">
+  <p class="resume-name">Wade Johnson</p>
+  <p class="resume-role">Senior Software Developer</p>
+  <p class="resume-contact">
+    {{ site.location }} · {{ site.email }} · computerrivet.github.io ·
+    github.com/computerrivet
+  </p>
+</div>
+
 <p class="lede">
   Senior software developer with 20+ years building and modernizing production
-  systems. Two pages.
+  systems, currently focused on industrial and transportation diagnostics.
 </p>
 
 <p class="resume-links">
@@ -23,33 +32,12 @@ eleventyExcludeFromCollections: true
 </p>
 
 <p class="meta">
-  Last updated {{ site.resumeUpdated }}. The PDF is the designed version;
-  the Word file is the same content in an editable format.
+  Last updated {{ site.resumeUpdated }}. The full text is below; the PDF is the
+  designed version and the Word file is editable.
 </p>
 
-<h2>Highlights</h2>
+<hr />
 
-<ul class="highlights">
-  <li>
-    <strong>ARCD Web</strong> — a multi-tenant ASP.NET platform for railroad
-    crossing diagnostics: 87 issues and ~20 releases, including a rolling
-    24-hour health-indicator engine and ACL-based access control.
-  </li>
-  <li>
-    <strong>ACMS Pass</strong> — a .NET MAUI application for Android and iOS,
-    shipped through 13+ releases, including re-architecting authentication onto
-    user-level API keys.
-  </li>
-  <li>
-    <strong>Platform modernization</strong> — .NET 8 to .NET 10 LTS, continuous
-    integration, Azure SQL consolidation, and Playwright-based PDF reporting.
-  </li>
-</ul>
-
-<h2>Contact</h2>
-
-<ul class="links">
-  <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-  <li><a href="{{ site.github }}">GitHub</a></li>
-  <li><a href="{{ site.linkedin }}">LinkedIn</a></li>
-</ul>
+<div class="resume">
+  {% include "resume-body.html" %}
+</div>

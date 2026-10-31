@@ -251,6 +251,33 @@ li::marker {
   color: var(--muted);
 }
 
+/* Resume header block: name, role, contact */
+
+.resume-head {
+  margin: 0 0 1.5rem;
+}
+
+.resume-name {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.resume-role {
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0.15rem 0 0.5rem;
+}
+
+.resume-contact {
+  font-size: 0.875rem;
+  color: var(--muted);
+  margin: 0;
+}
+
 /* Download buttons on the resume page */
 
 .resume-links {
@@ -285,6 +312,76 @@ li::marker {
 .button.secondary:hover {
   background: #eef4fa;
   color: var(--link);
+}
+
+/* Resume body, rendered from resume_master.md by render-resume-html.sh.
+   Tighter than site prose: this is a document, not an article. */
+
+.resume h2 {
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin: 2rem 0 0.5rem;
+  padding-bottom: 0.3rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.resume h2:first-child {
+  margin-top: 0;
+}
+
+.resume h3 {
+  font-size: 0.9375rem;
+  margin: 1.25rem 0 0.15rem;
+  line-height: 1.35;
+}
+
+.resume p {
+  margin: 0 0 0.5rem;
+  font-size: 0.9375rem;
+}
+
+.resume ul {
+  margin: 0 0 0.75rem;
+  padding-left: 1.1rem;
+}
+
+.resume li {
+  margin-bottom: 0.2rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.resume h3 + p em {
+  color: var(--muted);
+}
+
+.resume table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 0 1rem;
+  font-size: 0.9rem;
+}
+
+.resume table th,
+.resume table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.3rem 0.75rem 0.3rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.resume table th {
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.resume table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.resume hr {
+  display: none;
 }
 
 /* Print: strip chrome, keep content. */
